@@ -23,7 +23,7 @@ const Projects = () => {
             width="200"
             height="200"
             alt=""
-            className={styles.home_image}
+            className={styles.homeimage}
           />
           <div className={styles.container3}>
             <p className="para">Production Scheduler</p>
@@ -32,7 +32,13 @@ const Projects = () => {
             <p className="para">Technologies : React, Node.js, PostgreSQL</p>
             <p className="para">Time together: 6 months till now</p>
             <p className="para">
-              <Image src="/image/arrow.png" alt="" width="20" height="20" />
+              <Image
+                src="/image/arrow.png"
+                alt=""
+                width="20"
+                height="20"
+                className={styles.homeimage1}
+              />
               {/* <img src={Arrow} alt="" className="home_image1" /> */}
             </p>
           </div>
@@ -41,17 +47,29 @@ const Projects = () => {
 
       <div className={styles.container1a}>
         <div className={styles.container2}>
-          <Image src="/image/project1.png" width="200" height="200" alt="" />
+          <Image
+            src="/image/project1.png"
+            width="600"
+            height="500"
+            alt=""
+            className={styles.homeimage}
+          />
           {/* <img src={project1} alt="" className="home_image" /> */}
 
           <div className={styles.container3}>
-            <p className="para">Santa Surprise</p>
+            <p className={styles.para}>Santa Surprise</p>
             <h3>A GIFT EXCHANGE PROGRAM</h3>
-            <p className="parat">Country: India</p>
-            <p className="para">Technologies: React, Node.js, MongoDB</p>
-            <p className="para">Time together: 3 months till now</p>
-            <p className="para">
-              <Image src="/image/arrow.png" alt="" width="20" height="20" />
+            <p className={styles.parat}>Country: India</p>
+            <p className={styles.para}>Technologies: React, Node.js, MongoDB</p>
+            <p className={styles.para}>Time together: 3 months till now</p>
+            <p className={styles.para}>
+              <Image
+                src="/image/arrow.png"
+                alt=""
+                width="20"
+                height="20"
+                className={styles.homeimage1}
+              />
               {/* <img src={Arrow} alt="" className="home_image1" /> */}
             </p>
           </div>
