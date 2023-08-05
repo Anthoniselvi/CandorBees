@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "@/styles/Footer.module.css";
 const Footer = () => {
   const [ishovered, setIsHovered] = useState(false);
@@ -42,7 +43,7 @@ const Footer = () => {
             >
               {ishovered ? (
                 <div className={styles.submitbtn}>
-                  Submit{" "}
+                  Submit
                   <ArrowRightAltIcon
                     className={styles.rightarrow}
                     sx={{ fontSize: "35px" }}
