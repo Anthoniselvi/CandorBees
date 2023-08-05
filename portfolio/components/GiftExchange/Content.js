@@ -1,7 +1,8 @@
-import styles from "@/styles/JobContent.module.css";
+import { useEffect, useState } from "react";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import styles from "@/styles/GiftContent.module.css";
 import Image from "next/image";
 
 const boxVariant = {
@@ -13,7 +14,7 @@ const boxVariant = {
   hidden: { opacity: 0, y: 50 },
 };
 
-export default function Content() {
+const Content = () => {
   const control1 = useAnimation();
   const [ref1, inView1] = useInView();
   const control2 = useAnimation();
@@ -48,6 +49,8 @@ export default function Content() {
   const [ref16, inView16] = useInView();
   const control17 = useAnimation();
   const [ref17, inView17] = useInView();
+  const control18 = useAnimation();
+  const [ref18, inView18] = useInView();
 
   useEffect(() => {
     if (inView1) {
@@ -173,10 +176,18 @@ export default function Content() {
       control17.start("hidden");
     }
   }, [control17, inView17]);
+  useEffect(() => {
+    if (inView18) {
+      control18.start("visible");
+    } else {
+      control18.start("hidden");
+    }
+  }, [control18, inView18]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.containercontent}>
@@ -188,24 +199,10 @@ export default function Content() {
             variants={boxVariant}
             animate={control1}
           >
-            <h1> OVERVIEW</h1>
-          </motion.div>
-          <motion.div
-            className="box"
-            ref={ref1}
-            initial="hidden"
-            variants={boxVariant}
-            animate={control1}
-            // className="parat1"
-          >
-            <p className={styles.parat1}>
-              The Production Scheduler is a web based application aims to
-              address the operational challenges faced by a manufacturing client
-              through the development of a comprehensive software application.
-              The client currently relies on a manual system for managing
-              machine operations and productivity tracking, which is inefficient
-              and prone to errors.
-            </p>
+            <h1>
+              <span id="over"></span>
+              OVERVIEW
+            </h1>
           </motion.div>
           <motion.div
             className="box"
@@ -213,20 +210,17 @@ export default function Content() {
             initial="hidden"
             variants={boxVariant}
             animate={control2}
-            // className="parat1"
           >
             <p className={styles.parat1}>
-              To enhance efficiency, accuracy, and decision-making, our team
-              developed the Production Scheduler application. This user-friendly
-              solution enables machine operators to plan, schedule, and monitor
-              jobs, while providing real-time dashboards and report generation
-              capabilities.
+              The Santa game web app is designed to bring people together during
+              the Christmas season to share gifts and wishes. It allows users to
+              create groups and participate in a secret Santa game where they
+              can exchange task messages and fulfill each other's wishes.
             </p>
           </motion.div>
           <p className={styles.parat1}>&#160;</p>
 
-          {/* <p className="para">&#160;</p> */}
-
+          <p className={styles.para}>&#160;</p>
           <motion.div
             className="box"
             ref={ref3}
@@ -235,11 +229,9 @@ export default function Content() {
             animate={control3}
           >
             <h1>
-              {/* <span ></span> */}
-              PURPOSE AND NEED
+              <span id="pur"></span>PURPOSE AND NEED
             </h1>
           </motion.div>
-
           <motion.div
             className="box"
             ref={ref4}
@@ -248,14 +240,16 @@ export default function Content() {
             animate={control4}
           >
             <p className={styles.parat1}>
-              The manufacturing client operates a wide range of machines within
-              their factory, each responsible for producing different tools.
-              However, the manual process of managing these machines and
-              tracking their productivity hampers operational efficiency. The
-              client approached our company seeking a solution that would
-              automate and streamline these processes.
+              The purpose of the app is to facilitate the organization and
+              enjoyment of the secret Santa game, allowing users to connect,
+              exchange gifts, and create a joyful Christmas experience. The app
+              addresses the need for a user-friendly platform that simplifies
+              the process of drawing names, sending task messages, managing
+              wishlists, and coordinating the final reveal event.
             </p>
           </motion.div>
+
+          <p className={styles.parat1}>&#160;</p>
           <motion.div
             className="box"
             ref={ref5}
@@ -263,16 +257,10 @@ export default function Content() {
             variants={boxVariant}
             animate={control5}
           >
-            <p className={styles.parat1}>
-              In response, we developed the Production Scheduler application to
-              empower machine operators to efficiently plan and schedule jobs,
-              monitor machine statuses, and generate insightful reports. By
-              replacing the manual system, the application improves
-              productivity, accuracy, and overall operational performance.
-            </p>
+            <h1>
+              <span id="work"></span>WORKFLOW
+            </h1>
           </motion.div>
-          <p className={styles.parat1}>&#160;</p>
-
           <motion.div
             className="box"
             ref={ref6}
@@ -280,12 +268,24 @@ export default function Content() {
             variants={boxVariant}
             animate={control6}
           >
-            <h1>
-              {/* <span id="work">                </span> */}
-              WORKFLOW
-            </h1>
-          </motion.div>
+            <p className={styles.parat1}>Group Creation:</p>
 
+            <p className={styles.parat1}>
+              Users can create a new group and specify a group name.
+            </p>
+            <p className={styles.para}>
+              The group creator becomes the organizer with administrative
+              privileges. User Invitation and Joining:
+            </p>
+
+            <p className={styles.parat1}>
+              The organizer can invite multiple users to join the group via
+              invitation links or email.
+            </p>
+            <p className={styles.para}>
+              Users can accept invitations and become members of the group.
+            </p>
+          </motion.div>
           <motion.div
             className="box"
             ref={ref7}
@@ -293,17 +293,14 @@ export default function Content() {
             variants={boxVariant}
             animate={control7}
           >
-            <p className={styles.parat1}>
-              The Production Scheduler application revolutionizes the client's
-              workflow by providing a centralized platform for managing machine
-              operations and productivity tracking. Machine operators can
-              utilize the application to plan and schedule jobs, assign specific
-              tools to individual machines, and make adjustments as needed.
+            <p className={styles.parat1}>Drawing Names:</p>
+            <p className={styles.para}>
+              The organizer initiates the name-drawing process. Names are
+              randomly assigned to each user, ensuring that no user draws their
+              own name. Users are notified of their assigned role as a mom or
+              child.
             </p>
           </motion.div>
-
-          <p className={styles.parat1}>&#160;</p>
-
           <motion.div
             className="box"
             ref={ref8}
@@ -311,12 +308,14 @@ export default function Content() {
             variants={boxVariant}
             animate={control8}
           >
-            <h1>
-              {/* <span ></span> */}
-              TECHNOLOGY
-            </h1>
+            <p className="parat1">Task Messages:</p>
+            <p className="para">
+              Moms can send task messages to their assigned children. Children
+              can receive and respond to task messages from their moms. Task
+              messages enable communication, provide hints, or request
+              additional information.
+            </p>
           </motion.div>
-
           <motion.div
             className="box"
             ref={ref9}
@@ -324,17 +323,13 @@ export default function Content() {
             variants={boxVariant}
             animate={control9}
           >
-            <p className={styles.parat1}>
-              The application's real-time dashboard offers comprehensive
-              visibility into machine statuses, enabling operators to monitor
-              progress effectively. Furthermore, the application facilitates
-              report generation, providing valuable insights for analysis,
-              performance evaluation, and informed decision-making.
+            <p className={styles.parat1}>Wishlist Creation and Management:</p>
+            <p className={styles.para}>
+              Children can create and update their wishlists. Wishlists include
+              items or gifts that the child would like to receive. Wishlists are
+              visible to the assigned mom, who can use them for gift selection.
             </p>
           </motion.div>
-
-          <p className={styles.parat1}>&#160;</p>
-
           <motion.div
             className="box"
             ref={ref10}
@@ -342,12 +337,15 @@ export default function Content() {
             variants={boxVariant}
             animate={control10}
           >
-            <h1>
-              {/* <span ></span> */}
-              STRUCTURE AND FEATURES
-            </h1>
+            <p className={styles.parat1}>Reveal and Gift Exchange:</p>
+            <p className={styles.para}>
+              A designated final game event date is set. Moms' identities are
+              revealed to the children during the event. Moms have access to
+              their assigned child's wishlist to purchase gifts. Gifts are
+              exchanged between moms and children during the event.
+            </p>
           </motion.div>
-
+          <p className={styles.parat1}>&#160;</p>
           <motion.div
             className="box"
             ref={ref11}
@@ -355,13 +353,10 @@ export default function Content() {
             variants={boxVariant}
             animate={control11}
           >
-            <p className={styles.parat1}>
-              The Production Scheduler application is structured to provide
-              seamless and efficient management of machine operations. Key
-              features include:
-            </p>
+            <h1>
+              <span id="tech"></span>TECHNOLOGY
+            </h1>
           </motion.div>
-
           <motion.div
             className="box"
             ref={ref12}
@@ -369,29 +364,21 @@ export default function Content() {
             variants={boxVariant}
             animate={control12}
           >
+            <p className={styles.parat1}>
+              The Santa game web app will be developed using the following
+              technologies:
+            </p>
+
             <div className={styles.list1}>
               <ul>
-                <ol className={styles.ol}>
-                  1. Job Planning and Scheduling: Machine operators can easily
-                  plan and schedule jobs, assigning specific tools to individual
-                  machines and making adjustments as necessary.
+                <ol>1. Programming Language: [Specify programming language]</ol>
+                <ol>
+                  2. Frameworks/Libraries: [Specify frameworks or libraries]
                 </ol>
-                <ol className={styles.ol}>
-                  2. Real-time Dashboard: The application offers a comprehensive
-                  dashboard, providing real-time updates on machine statuses,
-                  such as running, idle, or stopped.
-                </ol>
-                <ol className={styles.ol}>
-                  3. Data Visualization: Machine data is presented in an
-                  intuitive and visually appealing manner, enabling operators to
-                  monitor productivity trends and identify bottlenecks.
-                </ol>
-                <ol className={styles.ol}>
-                  4. Report Generation: The application allows users to generate
-                  detailed reports based on the collected machine data,
-                  facilitating analysis, performance evaluation, and informed
-                  decision-making.
-                </ol>
+                <ol>3. Database: [Specify database system]</ol>
+                <ol>4. Hosting Platform: [Specify hosting platform]</ol>
+                <ol>5. Front-end: [Specify front-end technologies]</ol>
+                <ol>6. Back-end: [Specify back-end technologies]</ol>
               </ul>
             </div>
           </motion.div>
@@ -403,17 +390,10 @@ export default function Content() {
             variants={boxVariant}
             animate={control13}
           >
-            <Image
-              src="/image/project1.png"
-              width="800"
-              height="500"
-              alt=""
-              className={styles.image}
-            />
+            <h1>
+              <span id="stru"></span>STRUCTURE AND FEATURES
+            </h1>
           </motion.div>
-
-          <p className={styles.parat1}>&#160;</p>
-
           <motion.div
             className="box"
             ref={ref14}
@@ -421,9 +401,24 @@ export default function Content() {
             variants={boxVariant}
             animate={control14}
           >
-            <h1>RESULTS</h1>
+            <p className={styles.parat1}>
+              The Santa game web app will consist of the following structure and
+              features:
+            </p>
+            <div className={styles.list1}>
+              <ul>
+                <ol>1. Group Management</ol>
+                <ol>2. Name Drawing</ol>
+                <ol>3. Task Messaging System</ol>
+                <ol>4. Wishlist Creation and Management</ol>
+                <ol>5. Reveal Event Management</ol>
+                <ol>6. Gift Exchange</ol>
+                <ol>7. User Notifications</ol>
+                <ol>8. User-friendly UI and Design</ol>
+              </ul>
+            </div>
           </motion.div>
-
+          <p className={styles.parat1}>&#160;</p>
           <motion.div
             className="box"
             ref={ref15}
@@ -431,34 +426,83 @@ export default function Content() {
             variants={boxVariant}
             animate={control15}
           >
-            <p className={styles.parat1}>
-              After the successful release of the product, our team continues to
-              work on the project, provide support and work with feedback to
-              improve the functionality of Production Scheduler.
-            </p>
+            <Image
+              src="/image/project1.png"
+              width="200"
+              height="200"
+              alt=""
+              className={styles.image}
+            />
           </motion.div>
+
+          <p className={styles.parat1}>&#160;</p>
+          <motion.div
+            className="box"
+            ref={ref16}
+            initial="hidden"
+            variants={boxVariant}
+            animate={control16}
+          >
+            <h1>
+              <span id="res"></span>RESULTS
+            </h1>
+          </motion.div>
+          <motion.div
+            className="box"
+            ref={ref17}
+            initial="hidden"
+            variants={boxVariant}
+            animate={control17}
+          >
+            <p className={styles.parat1}>
+              The expected results from the Santa game web app are as follows:
+            </p>
+
+            <div className={styles.list1}>
+              <ul>
+                <ol className={styles.ol}>
+                  1. Users can create groups and invite others to join.
+                </ol>
+                <ol className={styles.ol}>
+                  2. Names are assigned randomly, ensuring fair distribution.
+                </ol>
+                <ol className={styles.ol}>
+                  3. Moms can send task messages to their assigned children.
+                </ol>
+                <ol className={styles.ol}>
+                  4. Children can create wishlists visible to their assigned
+                  moms.
+                </ol>
+                <ol className={styles.ol}>
+                  5. Moms can access wishlists to purchase gifts.
+                </ol>
+                <ol className={styles.ol}>
+                  6. The final game event facilitates the reveal and gift
+                  exchange.
+                </ol>
+                <ol className={styles.ol}>
+                  7. Users receive notifications to stay updated on app
+                  activities.
+                </ol>
+                <ol className={styles.ol}>
+                  8. The app provides an enjoyable and seamless user experience,
+                  fostering Christmas spirit and celebration.
+                </ol>
+              </ul>
+            </div>
+          </motion.div>
+          <div className={styles.containercontent1}></div>
         </div>
-        <div className={styles.containercontent1}></div>
       </div>
-
-      <div className={styles.container1content}>
-        <motion.div
-          className="box"
-          ref={ref16}
-          initial="hidden"
-          variants={boxVariant}
-          animate={control16}
-        >
+      <motion.div
+        className="box"
+        ref={ref18}
+        initial="hidden"
+        variants={boxVariant}
+        animate={control18}
+      >
+        <div className={styles.container1content}>
           <h1>THESE ARE SOME OF OUR PERFECT MATCHES</h1>
-        </motion.div>
-
-        <motion.div
-          className="box"
-          ref={ref17}
-          initial="hidden"
-          variants={boxVariant}
-          animate={control17}
-        >
           <p className={styles.para}>
             We are burning not only with cool projects, but also with the people
             behind them. And a perfect team match truly matters. Our clients are
@@ -466,8 +510,10 @@ export default function Content() {
             are some examples of times when CandorBees became a best-fit
             teammate for our customers.
           </p>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default Content;

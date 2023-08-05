@@ -10,8 +10,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Candorbees</title>
-        {/* <meta name="description" content="Best" />
-        <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Header />
       <Projects />

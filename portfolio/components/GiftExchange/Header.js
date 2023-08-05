@@ -1,7 +1,7 @@
-import styles from "@/styles/JobHeader.module.css";
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import styles from "@/styles/GiftHeader.module.css";
 import Image from "next/image";
 
 const boxVariant = {
@@ -12,7 +12,6 @@ const boxVariant = {
   },
   hidden: { opacity: 0, y: 50 },
 };
-
 export default function Header() {
   const control1 = useAnimation();
   const [ref1, inView1] = useInView();
@@ -45,15 +44,13 @@ export default function Header() {
           variants={boxVariant}
           animate={control1}
         >
-          <div>
-            <Image
-              src="/image/project5.png"
-              width="200"
-              height="200"
-              alt=""
-              className={styles.homeimage}
-            />
-          </div>
+          <Image
+            src="/image/project5.png"
+            width="200"
+            height="200"
+            alt=""
+            className={styles.homeimage}
+          />
         </motion.div>
         <motion.div
           className="box"
@@ -63,20 +60,14 @@ export default function Header() {
           animate={control2}
         >
           <div className={styles.container3}>
-            <h2>Production Scheduler</h2>
-            <h3>JOB MANAGEMENT PLATFORM</h3>
+            <h2>Santa Surprise</h2>
+            <h3>A GIFT EXCHANGE PROGRAM</h3>
             <p className={styles.parat}>Country: India</p>
-            <p className={styles.para}>
-              Technologies : React, Node.js, PostgreSQL
-            </p>
-            <p className={styles.para}>Time together: 6 months till now</p>
-            <p className={styles.para}>
-              Team : 1 PM, 0.5 BA, 2 developers, 1 QA
-            </p>
+            <p className={styles.para}>Technologies: React, Node.js, MongoDB</p>
+            <p className={styles.para}>Time together: 3 months till now</p>
           </div>
         </motion.div>
       </div>
-      {/* </div> */}
     </div>
   );
 }
