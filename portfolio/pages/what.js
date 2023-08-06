@@ -11,7 +11,7 @@ const what = () => {
       <WeAreGoodAt />
       <ProcessAndStack />
       <Projects />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

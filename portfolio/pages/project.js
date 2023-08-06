@@ -6,7 +6,7 @@ const project = () => {
     <div className="Project_Container">
       <Header />
       <WorkingWayAndStock />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

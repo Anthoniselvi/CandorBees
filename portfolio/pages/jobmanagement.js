@@ -7,7 +7,7 @@ const jobmanagement = () => {
     <div className="Project_Container">
       <Header />
       <Content />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

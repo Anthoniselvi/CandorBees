@@ -7,7 +7,7 @@ export default function giftexchange() {
     <div className="Project_Container">
       <Header />
       <Content />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
